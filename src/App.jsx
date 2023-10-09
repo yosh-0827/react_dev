@@ -1,7 +1,9 @@
 import { ColorMessage } from "./components/ColorMessage";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export const App = () => {
+  console.log("レンダリング");
   //stateの定義
   const [num, setNum] = useState(0);
 
@@ -9,6 +11,11 @@ export const App = () => {
   const onClickButton = () => {
     setNum(num + 1);
   };
+
+  //stateの値が変わったときにアラートを表示する
+  useEffect(() => {
+    alert("Stateの値が変わったよ");
+  }, [num]);
 
   return (
     <>
